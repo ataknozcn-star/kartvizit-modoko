@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koala Style İletişim</title>
+<meta name="description" content="Koala Style mağaza adresi, satış temsilcileri ve iletişim bilgileri">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
+<script>
+/* ==========================================================
+   BİLGİLERİ BURADAN DÜZENLEYİN
+   Sadece tırnak ("...") içindeki yazıları değiştirin.
+   Bir temsilci eklemek için { ... }, satırını kopyalayın.
+   Mail veya telefon boş bırakılırsa o buton görünmez.
+   ========================================================== */
+const BILGI = {
+  firma: "Koala Style",
+  adres: "Modoko Mobilyacılar Sitesi, 2. Cadde 2. Sokak No: 170",
+  ilce: "Dudullu, Ümraniye / İstanbul",
+  telefon: "0543 811 47 56",
+  whatsapp: "905438114756",
+  web: "koalastyle.com.tr",
+  // Google Maps'te mağazanızın konumunu açıp "Paylaş" ile aldığınız linki buraya yapıştırın:
+  harita: "https://www.google.com/maps/search/?api=1&query=Modoko+Mobilyac%C4%B1lar+Sitesi+2.+Cadde+No+170+%C3%9Cmraniye+%C4%B0stanbul",
+  temsilciler: [
+    { ad: "Atakan Özcan", unvan: "Satış Temsilcisi", mail: "", telefon: "" },
+    { ad: "Egemen Özcan", unvan: "Satış Temsilcisi", mail: "", telefon: "" },
+  ],
+};
+</script>
+<style>
+:root {
+  --bg: #f5f5f4;
+  --panel: #ffffff;
+  --ink: #2b2b2b;
+  --muted: #6b6b6b;
+  --line: #e4e4e2;
+  --gray: #3c3c3c;
+  --brand: #c90d0d;
+  --brand-dark: #a50b0b;
+  --brand-soft: #fbeaea;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Open Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 460px; margin: 0 auto; padding: 20px 16px 40px; }
+
+header { text-align: center; padding: 28px 0 22px; }
+.logo { display: inline-block; text-decoration: none; }
+.logo img { max-width: 220px; height: auto; display: block; margin: 0 auto; }
+.wordmark { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; color: var(--gray); line-height: 1; }
+.wordmark em { color: var(--brand); font-style: italic; font-weight: 700; }
+.tagline { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+.label {
+  font-size: 12px; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 10px;
+}
+.addr { margin: 0 0 14px; font-size: 15px; }
+.addr strong { display: block; font-size: 16px; }
+
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; min-height: 48px; padding: 10px 14px;
+  border-radius: 10px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--ink);
+  font: inherit; font-weight: 600; font-size: 15px;
+  text-decoration: none; cursor: pointer;
+}
+.btn svg { width: 19px; height: 19px; flex: none; }
+.btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.btn.primary:active { background: var(--brand-dark); }
+.btn:active { transform: translateY(1px); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.stack { display: grid; gap: 10px; }
+
+.rep { padding: 14px 0; border-top: 1px solid var(--line); }
+.rep:first-of-type { border-top: 0; padding-top: 0; }
+.rep:last-child { padding-bottom: 0; }
+.rep-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.avatar {
+  width: 44px; height: 44px; border-radius: 50%; flex: none;
+  background: var(--brand-soft); color: var(--brand);
+  display: grid; place-items: center; font-weight: 700; font-size: 16px;
+}
+.rep-name { font-weight: 700; font-size: 16px; line-height: 1.2; }
+.rep-title { color: var(--muted); font-size: 13px; }
+.rep-mail { color: var(--muted); font-size: 13px; word-break: break-all; }
+
+footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 22px; }
+footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" id="logo" href="#">
+      <!-- Logo dosyasını "logo.png" adıyla bu klasöre yüklerseniz otomatik görünür -->
+      <img src="logo.png" alt="Koala Style" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'wordmark',innerHTML:'KOALA <em>style</em>'}))">
+    </a>
+    <p class="tagline">Mobilya · Modoko</p>
+  </header>
+
+  <section class="card">
+    <p class="label">Mağaza</p>
+    <p class="addr"><strong id="addr1"></strong><span id="addr2"></span></p>
+    <div class="stack">
+      <a class="btn primary" id="mapBtn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Haritada aç / Yol tarifi
+      </a>
+      <div class="row">
+        <a class="btn" id="callBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          Ara
+        </a>
+        <a class="btn" id="waBtn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <p class="label">Satış Temsilcileri</p>
+    <div id="reps"></div>
+  </section>
+
+  <button class="btn primary" id="vcardBtn" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+    Rehbere kaydet
+  </button>
+
+  <footer>
+    <a id="webLink" target="_blank" rel="noopener"></a>
+  </footer>
+</div>
+
+<script>
+const B = BILGI;
+const $ = (id) => document.getElementById(id);
+const tel = (t) => "tel:" + t.replace(/[^\d+]/g, "");
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+document.title = B.firma + " İletişim";
+$("addr1").textContent = B.adres;
+$("addr2").textContent = B.ilce;
+$("mapBtn").href = B.harita;
+$("callBtn").href = tel(B.telefon);
+if (B.whatsapp) $("waBtn").href = "https://wa.me/" + B.whatsapp; else $("waBtn").remove();
+if (B.web) { $("webLink").href = "https://" + B.web; $("webLink").textContent = B.web; $("logo").href = "https://" + B.web; }
+
+const mailIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>';
+const phoneIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>';
+
+$("reps").innerHTML = B.temsilciler.map((r) => {
+  const initials = r.ad.split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toLocaleUpperCase("tr");
+  const btns = [];
+  if (r.mail) btns.push(`<a class="btn" href="mailto:${esc(r.mail)}">${mailIcon} Mail gönder</a>`);
+  if (r.telefon) btns.push(`<a class="btn" href="${tel(r.telefon)}">${phoneIcon} Ara</a>`);
+  return `<div class="rep">
+    <div class="rep-head">
+      <div class="avatar">${esc(initials)}</div>
+      <div>
+        <div class="rep-name">${esc(r.ad)}</div>
+        <div class="rep-title">${esc(r.unvan || "")}</div>
+        ${r.mail ? `<div class="rep-mail">${esc(r.mail)}</div>` : ""}
+      </div>
+    </div>
+    ${btns.length ? `<div class="${btns.length > 1 ? "row" : "stack"}">${btns.join("")}</div>` : ""}
+  </div>`;
+}).join("");
+
+$("vcardBtn").addEventListener("click", () => {
+  const e = (s) => (s || "").replace(/([,;\\])/g, "\\$1");
+  const lines = [
+    "BEGIN:VCARD", "VERSION:3.0",
+    "N:;" + e(B.firma) + ";;;", "FN:" + e(B.firma), "ORG:" + e(B.firma),
+    "TEL;TYPE=WORK,VOICE:" + B.telefon.replace(/\s/g, ""),
+    "ADR;TYPE=WORK:;;" + e(B.adres) + ";" + e(B.ilce) + ";;;Türkiye",
+  ];
+  B.temsilciler.forEach((r) => {
+    if (r.mail) lines.push("EMAIL;TYPE=WORK:" + r.mail);
+    if (r.telefon) lines.push("TEL;TYPE=CELL:" + r.telefon.replace(/\s/g, ""));
+  });
+  if (B.web) lines.push("URL:https://" + B.web);
+  lines.push("NOTE:Satış temsilcileri: " + e(B.temsilciler.map((r) => r.ad).join(", ")));
+  lines.push("END:VCARD");
+  const blob = new Blob([lines.join("\r\n")], { type: "text/vcard;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "koala-style.vcf";
+  document.body.appendChild(a); a.click(); a.remove();
+});
+</script>
+</body>
+</html>
